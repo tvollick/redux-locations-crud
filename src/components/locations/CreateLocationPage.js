@@ -29,7 +29,14 @@ function getLocationById(locations, id) {
 function mapStateToProps(state, ownProps) {
   const locationId = ownProps.params.id;
 
-  let location = {name: ''};
+  let location = {
+    name: '',
+    addr1: '',
+    addr2: '',
+    city: '',
+    state: '',
+    zip: ''
+  };
 
   if (locationId && state.locations.locations.length) {
 
