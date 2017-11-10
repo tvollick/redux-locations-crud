@@ -1,18 +1,53 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const LocationsList = (props) => {
-  const list = props.locations.map((location, index) => {
+  const listItems = props.locations.map((location, index) => {
     return (
       <li key={index}>
-        <h4>Location name</h4>
-        <h6>{location.id}</h6>
+        <div className="locationsListItem">
+          <h4>{location.name ? location.name : "No Name"}</h4>
+          <div className="btn-group">
+            <Link
+              className="btn btn-default"
+              to={`/location/${location.id}`}
+              >
+              Edit
+            </Link>             <button
+              className="btn btn-danger"
+              onClick={() => {
+                props.handleDeleteLocation(location.id);
+              }}
+              >
+              Delete
+            </button>
+          </div>
+        </div>
       </li>
     );
   });
-  return(
-    <ul>
-      {list}
+
+  const list = (
+    <ul className="locationsList">
+      {listItems}
     </ul>
+  );
+
+  const noLocations = (
+    <div className="alert alert-info">
+      There are no locations. Add one now!
+      <div>
+        <Link to="/location" className="btn btn-primary">Add Location</Link>
+      </div>
+    </div>
+  );
+
+  console.log()
+
+  return(
+    <div className="locationsListWrap">
+      {props.locations.length ? list : noLocations }
+    </div>
   );
 };
 

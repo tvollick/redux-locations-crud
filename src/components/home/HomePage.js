@@ -7,6 +7,12 @@ class HomePage extends React.Component {
       <div className="jumbotron">
         <h1>TileFive Locations</h1>
         <p>something awesome... </p>
+        <Link
+          to="/locations"
+          className="btn btn-primary"
+        >
+          View Locations
+        </Link>
       </div>
     );
   }

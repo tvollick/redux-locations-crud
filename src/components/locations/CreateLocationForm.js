@@ -6,12 +6,9 @@ import * as locationActions from '../../actions/locationActions';
 class CreateLocationForm extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      location: {
-        name: ''
-      }
-    }
+      location: props.location
+    };
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
@@ -27,6 +24,9 @@ class CreateLocationForm extends React.Component {
 
   handleFormSubmit(e) {
     e.preventDefault();
+
+    this.props.actions.updateLocation(this.state.location);
+
     // is there a cleaner way to set nested state properties?
     this.setState((prevState) => {
       return Object.assign({}, prevState, {
@@ -34,8 +34,7 @@ class CreateLocationForm extends React.Component {
           name: ''
         })
       });
-    })
-    this.props.actions.putLocation();
+    });
   }
 
   render() {
@@ -58,6 +57,7 @@ class CreateLocationForm extends React.Component {
 
   }
 }
+
 function mapStateToProps(state, ownProps) {
   return {};
 }

@@ -9,6 +9,7 @@ export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
     <Route path="locations" component={LocationsPage} />
-    <Route path="create-location" component={CreateLocationPage} />
+    <Route path="location" component={CreateLocationPage} />
+    <Route path="location/:id" component={CreateLocationPage} />
   </Route>
 );

@@ -11,5 +11,14 @@ a.active {
 }
 
 nav {
-  padding-top: 20px; 
+  padding-top: 20px;
+}
+.locationsList {
+  list-style-type: none;
+  padding-left: 0; 
+}
+.locationsListItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
